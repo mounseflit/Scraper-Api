@@ -11,7 +11,7 @@ This is a Node.js-based web scraper that accepts a URL as a query parameter and 
 ## How to Use:
 1. Deploy the project on Vercel.
 2. Make a GET request to the `/api/scrape` endpoint with the `url` query parameter:
-https://api-scraper/api/scrape?url=https://example.com
+https://aicrafters-scraper-api/scrape?url="https://example.com"
 
 ## Dependencies:
 - axios
