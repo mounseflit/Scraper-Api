@@ -116,7 +116,7 @@
     <h1>Ai Crafters Web Scraping API Documentation</h1>
     
     <h2>Base URL</h2>
-    <pre>https://aicrafters-scraper-api.vercel.app</pre>
+    <pre>https://aicrafters-web-scraper.vercel.app</pre>
 
     <h2>Demonstration</h2>
     <button onclick="window.location.href='/demo'" style="background-color: var(--primary-color); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Try the Demo</button>
@@ -142,6 +142,7 @@
                 <li><code>images</code>: Returns all image URLs found on the page</li>
                 <li><code>text</code>: Returns cleaned text content from the page</li>
                 <li><code>links</code>: Returns all hyperlinks found on the page</li>
+                <li><code>scripts</code>: Returns all script URLs found on the page</li>
             </ul>
         </div>
 
@@ -218,7 +219,19 @@
     </pre>
         </div>
 
-        <h3>Error Responses : </h3>
+        
+        <h3>5. Get all script sources from a website:</h3>
+        <pre>GET /scrape?url=https://example.com&type=scripts</pre>
+        <h4>Response Format : </h4>
+        <pre>
+    {
+        "message": "Scraping successful!",
+        "pageTitle": "Page Title",
+        "result" : "Script content here"
+    }
+    </pre>
+
+    <h3>Error Responses : </h3>
         <pre>
 // 400 Bad Request
 {
@@ -230,6 +243,8 @@
     "message": "Error occurred during scraping",
     "error": "Error details"
 }</pre>
+
+
     </div>
 
     <div class="endpoint">

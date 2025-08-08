@@ -56,8 +56,8 @@ async function scrapeWebsite(req, res) {
  
 
   // Validate the method
-  if (method && !['html', 'images', 'text', 'links'].includes(method)) {
-    return res.status(400).json({ message: 'Invalid method. Please use one of the following: html, images, text, links' });
+  if (method && !['html', 'images', 'text', 'links', 'scripts'].includes(method)) {
+    return res.status(400).json({ message: 'Invalid method. Please use one of the following: html, images, text, links, scripts' });
   }
 
 
@@ -199,6 +199,20 @@ async function scrapeWebsite(req, res) {
       message: 'Links extracted successfully',
       pageTitle,
       result: uniqueLinks
+      });
+    }
+
+    // for scripts
+    if (method === 'scripts') {
+      let scripts = "";
+      // what is inside <script> </script>
+      $('script').each((_, element) => {
+        scripts += $(element).html() + "\n";
+      });
+      return res.json({
+        message: 'Scripts extracted successfully',
+        pageTitle,
+        result: scripts
       });
     }
 
